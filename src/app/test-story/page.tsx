@@ -130,7 +130,7 @@ export default function TestStoryPage() {
               )}>
                 {streamingContent.sections.chapter?.isComplete
                   ? streamingContent.sections.chapter.text
-                  : `Chapter ${currentChapter}`}
+                  : ''}
               </h2>
             </div>
           </Card>
@@ -175,7 +175,7 @@ export default function TestStoryPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className="text-gray-200 leading-relaxed first-letter:text-4xl first-letter:font-bold first-letter:mr-1 first-letter:float-left first-letter:text-red-500"
+                        className={`text-gray-200 leading-relaxed ${index === 0 ? 'first-letter:text-4xl first-letter:font-bold first-letter:mr-1 first-letter:float-left first-letter:text-red-500' : ''}`}
                       >
                         {paragraph}
                       </motion.p>
