@@ -1,0 +1,124 @@
+{
+  "mages": {
+    "dark-mage": {
+      "path": "/sprites/mages/dark-mage/",
+      "size_range": "19-30KB per frame",
+      "files": {
+        "combat": [
+          "Attack_1.png",
+          "Attack_2.png"
+        ],
+        "special": [
+          "Magic_sphere.png",
+          "Magic_arrow.png"
+        ],
+        "movement": [
+          "Walk.png",
+          "Run.png",
+          "Jump.png"
+        ],
+        "states": [
+          "Idle.png",
+          "Hurt.png",
+          "Dead.png"
+        ]
+      },
+      "specialization": "Dark magic specialist with sphere and arrow attacks"
+    },
+    "enchantress": {
+      "path": "/sprites/mages/enchantress/",
+      "size_range": "19-25KB per frame",
+      "files": {
+        "combat": [
+          "Attack_1.png",
+          "Attack_2.png",
+          "Attack_3.png",
+          "Attack_4.png"
+        ],
+        "movement": [
+          "Walk.png",
+          "Run.png",
+          "Jump.png"
+        ],
+        "states": [
+          "Idle.png",
+          "Hurt.png",
+          "Dead.png"
+        ]
+      },
+      "specialization": "Versatile spellcaster with multiple attack combinations"
+    },
+    "fire-mage": {
+      "path": "/sprites/mages/fire-mage/",
+      "size_range": "19-32KB per frame",
+      "files": {
+        "combat": [
+          "Attack_1.png",
+          "Attack_2.png"
+        ],
+        "special": [
+          "Fireball.png",
+          "Flame_jet.png"
+        ],
+        "movement": [
+          "Walk.png",
+          "Run.png",
+          "Jump.png"
+        ],
+        "states": [
+          "Idle.png",
+          "Hurt.png",
+          "Dead.png"
+        ]
+      },
+      "specialization": "Fire magic specialist with powerful ranged attacks"
+    },
+    "light-mage": {
+      "path": "/sprites/mages/light-mage/",
+      "size_range": "19-32KB per frame",
+      "files": {
+        "combat": [
+          "Attack_1.png",
+          "Attack_2.png"
+        ],
+        "special": [
+          "Light_ball.png",
+          "Light_charge.png"
+        ],
+        "movement": [
+          "Walk.png",
+          "Run.png",
+          "Jump.png"
+        ],
+        "states": [
+          "Idle.png",
+          "Hurt.png",
+          "Dead.png"
+        ]
+      },
+      "specialization": "Light magic specialist with charged attacks"
+    },
+    "wizard": {
+      "path": "/sprites/mages/wizard/",
+      "size_range": "20-25KB per frame",
+      "files": {
+        "combat": [
+          "Attack_1.png",
+          "Attack_2.png",
+          "Attack_3.png"
+        ],
+        "movement": [
+          "Walk.png",
+          "Run.png",
+          "Jump.png"
+        ],
+        "states": [
+          "Idle.png",
+          "Hurt.png",
+          "Dead.png"
+        ]
+      },
+      "specialization": "Traditional wizard with diverse spell combinations"
+    }
+  }
+}

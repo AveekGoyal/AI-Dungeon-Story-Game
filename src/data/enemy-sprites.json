@@ -1,0 +1,324 @@
+{
+  "enemies": {
+    "plent": {
+      "path": "/sprites/enemies/plent/",
+      "size_range": "20-29KB per frame",
+      "files": {
+        "combat": [
+          "Attack_1.png",
+          "Attack_2.png",
+          "Attack_3.png",
+          "Attack_Disguise.png"
+        ],
+        "special": [
+          "Cloud_posion.png",
+          "Disguise.png",
+          "Poison.png"
+        ],
+        "movement": [
+          "Walk.png"
+        ],
+        "states": [
+          "Idle.png",
+          "Hurt.png",
+          "Dead.png"
+        ]
+      },
+      "specialization": "Stealth enemy with poison abilities"
+    },
+    "fire_spirit": {
+      "path": "/sprites/enemies/fire_spirit/",
+      "size_range": "19-34KB per frame",
+      "files": {
+        "combat": [
+          "Attack.png",
+          "Shot.png"
+        ],
+        "special": [
+          "Charge.png",
+          "Explosion.png",
+          "Flame.png"
+        ],
+        "movement": [
+          "Walk.png",
+          "Run.png"
+        ],
+        "states": [
+          "Idle.png",
+          "Idle_2.png",
+          "Hurt.png",
+          "Dead.png"
+        ]
+      },
+      "specialization": "Ranged fire-based attacker"
+    },
+    "skeleton": {
+      "path": "/sprites/enemies/skeleton/",
+      "size_range": "19-23KB",
+      "files": {
+        "combat": [
+          "Attack_1.png",
+          "Attack_2.png",
+          "Attack_3.png"
+        ],
+        "special": [
+          "Special_attack.png"
+        ],
+        "movement": [
+          "Walk.png",
+          "Run.png",
+          "Jump.png"
+        ],
+        "states": [
+          "Idle.png",
+          "Hurt.png",
+          "Dead.png"
+        ]
+      },
+      "specialization": "Basic melee fighter with varied attacks"
+    },
+    "skeleton_archer": {
+      "path": "/sprites/enemies/skeleton_archer/",
+      "size_range": "17-28KB",
+      "files": {
+        "combat": [
+          "Attack_1.png",
+          "Attack_2.png",
+          "Attack_3.png",
+          "Shot_1.png",
+          "Shot_2.png"
+        ],
+        "special": [
+          "Arrow.png",
+          "Evasion.png"
+        ],
+        "movement": [
+          "Walk.png"
+        ],
+        "states": [
+          "Idle.png",
+          "Hurt.png",
+          "Dead.png"
+        ]
+      },
+      "specialization": "Ranged skeleton with evasive abilities"
+    },
+    "skeleton_spearman": {
+      "path": "/sprites/enemies/skeleton_spearman/",
+      "size_range": "20-24KB",
+      "files": {
+        "combat": [
+          "Attack_1.png",
+          "Attack_2.png",
+          "Run_Attack.png"
+        ],
+        "special": [
+          "Protect.png",
+          "Fall.png"
+        ],
+        "movement": [
+          "Walk.png",
+          "Run.png"
+        ],
+        "states": [
+          "Idle.png",
+          "Hurt.png",
+          "Dead.png"
+        ]
+      },
+      "specialization": "Defensive fighter with spear combat"
+    },
+    "skeleton_warrior": {
+      "path": "/sprites/enemies/skeleton_warrior/",
+      "size_range": "19-27KB",
+      "files": {
+        "combat": [
+          "Attack_1.png",
+          "Attack_2.png",
+          "Attack_3.png",
+          "Run_Attack.png"
+        ],
+        "special": [
+          "Protect.png"
+        ],
+        "movement": [
+          "Walk.png",
+          "Run.png"
+        ],
+        "states": [
+          "Idle.png",
+          "Hurt.png",
+          "Dead.png"
+        ]
+      },
+      "specialization": "Heavy armored skeleton with shield"
+    },
+    "troll": {
+      "path": "/sprites/enemies/trolls/troll1/",
+      "size_range": "362-622KB",
+      "files": {
+        "combat": [
+          "Attack_000.png",
+          "Attack_001.png",
+          "Attack_002.png",
+          "Attack_003.png",
+          "Attack_004.png",
+          "Attack_005.png",
+          "Attack_006.png",
+          "Attack_007.png",
+          "Attack_008.png",
+          "Attack_009.png"
+        ],
+        "movement": {
+          "walk": [
+            "Walk_000.png",
+            "Walk_001.png",
+            "Walk_002.png",
+            "Walk_003.png",
+            "Walk_004.png",
+            "Walk_005.png",
+            "Walk_006.png",
+            "Walk_007.png",
+            "Walk_008.png",
+            "Walk_009.png"
+          ],
+          "run": [
+            "Run_000.png",
+            "Run_001.png",
+            "Run_002.png",
+            "Run_003.png",
+            "Run_004.png",
+            "Run_005.png",
+            "Run_006.png",
+            "Run_007.png",
+            "Run_008.png",
+            "Run_009.png"
+          ],
+          "jump": [
+            "Jump_000.png",
+            "Jump_001.png",
+            "Jump_002.png",
+            "Jump_003.png",
+            "Jump_004.png",
+            "Jump_005.png",
+            "Jump_006.png",
+            "Jump_007.png",
+            "Jump_008.png",
+            "Jump_009.png"
+          ]
+        },
+        "states": {
+          "idle": [
+            "Idle_000.png",
+            "Idle_001.png",
+            "Idle_002.png",
+            "Idle_003.png",
+            "Idle_004.png",
+            "Idle_005.png",
+            "Idle_006.png",
+            "Idle_007.png",
+            "Idle_008.png",
+            "Idle_009.png"
+          ],
+          "hurt": [
+            "Hurt_000.png",
+            "Hurt_001.png",
+            "Hurt_002.png",
+            "Hurt_003.png",
+            "Hurt_004.png",
+            "Hurt_005.png",
+            "Hurt_006.png",
+            "Hurt_007.png",
+            "Hurt_008.png",
+            "Hurt_009.png"
+          ],
+          "dead": [
+            "Dead_000.png",
+            "Dead_001.png",
+            "Dead_002.png",
+            "Dead_003.png",
+            "Dead_004.png",
+            "Dead_005.png",
+            "Dead_006.png",
+            "Dead_007.png",
+            "Dead_008.png",
+            "Dead_009.png"
+          ]
+        }
+      },
+      "variants": ["troll1", "troll2", "troll3"],
+      "specialization": "Large, high-detail enemy with full animation sets"
+    },
+    "warewolfs": {
+      "variants": {
+        "black_warewolfs": {
+          "path": "/sprites/enemies/warewolfs/black_warewolfs/",
+          "size_range": "21-37KB per frame",
+          "files": {
+            "combat": [
+              "Attack_1.png",
+              "Attack_2.png",
+              "Attack_3.png",
+              "Run+Attack.png"
+            ],
+            "movement": [
+              "walk.png",
+              "Run.png",
+              "Jump.png"
+            ],
+            "states": [
+              "Idle.png",
+              "Hurt.png",
+              "Dead.png"
+            ]
+          }
+        },
+        "white_warewolfs": {
+          "path": "/sprites/enemies/warewolfs/white_warewolfs/",
+          "size_range": "21-37KB per frame",
+          "files": {
+            "combat": [
+              "Attack_1.png",
+              "Attack_2.png",
+              "Attack_3.png",
+              "Run+Attack.png"
+            ],
+            "movement": [
+              "Walk.png",
+              "Run.png",
+              "Jump.png"
+            ],
+            "states": [
+              "Idle.png",
+              "Hurt.png",
+              "Dead.png"
+            ]
+          }
+        },
+        "red_warewolfs": {
+          "path": "/sprites/enemies/warewolfs/red_warewolfs/",
+          "size_range": "21-38KB per frame",
+          "files": {
+            "combat": [
+              "Attack_1.png",
+              "Attack_2.png",
+              "Attack_3.png",
+              "Run+Attack.png"
+            ],
+            "movement": [
+              "Walk.png",
+              "Run.png",
+              "Jump.png"
+            ],
+            "states": [
+              "Idle.png",
+              "Hurt.png",
+              "Dead.png"
+            ]
+          }
+        }
+      },
+      "specialization": "Fast, aggressive melee fighters with color variants"
+    }
+  }
+}

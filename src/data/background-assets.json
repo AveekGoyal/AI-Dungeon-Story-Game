@@ -1,0 +1,741 @@
+{
+  "battleground": {
+    "path": "/backgrounds/battleground/",
+    "description": "War-torn battlefield scenes with bright and pale variants",
+    "variants": {
+      "Battleground1": {
+        "versions": {
+          "Bright": {
+            "files": [
+              "Battleground1.png",
+              "hills&trees.png",
+              "ruins.png",
+              "ruins2.png",
+              "ruins_bg.png",
+              "sky.png",
+              "statue.png",
+              "stones&grass.png"
+            ],
+            "display_file": {
+              "name": "Battleground1.png",
+              "size": 272220
+            }
+          },
+          "Pale": {
+            "files": [
+              "Battleground1.png",
+              "hills&trees.png",
+              "ruins.png",
+              "ruins2.png",
+              "ruins_bg.png",
+              "sky.png",
+              "statue.png",
+              "stones&grass.png"
+            ],
+            "display_file": {
+              "name": "Battleground1.png",
+              "size": 265366
+            }
+          }
+        }
+      },
+      "Battleground2": {
+        "versions": {
+          "Bright": {
+            "files": [
+              "Battleground2.png",
+              "bg.png",
+              "candeliar.png",
+              "columns&falgs.png",
+              "dragon.png",
+              "floor.png",
+              "mountaims.png",
+              "wall@windows.png"
+            ],
+            "display_file": {
+              "name": "Battleground2.png",
+              "size": 180842
+            }
+          },
+          "Pale": {
+            "files": [
+              "Battleground2.png",
+              "bg.png",
+              "candeliar.png",
+              "columns&falgs.png",
+              "dragon.png",
+              "floor.png",
+              "mountaims.png",
+              "wall@windows.png"
+            ],
+            "display_file": {
+              "name": "Battleground2.png",
+              "size": 176114
+            }
+          }
+        }
+      },
+      "Battleground3": {
+        "versions": {
+          "Bright": {
+            "files": [
+              "Battleground3.png",
+              "fireflys.png",
+              "grass&road.png",
+              "grasses.png",
+              "jungle_bg.png",
+              "lianas.png",
+              "sky.png",
+              "tree_face.png",
+              "trees&bushes.png"
+            ],
+            "display_file": {
+              "name": "Battleground3.png",
+              "size": 214385
+            }
+          },
+          "Pale": {
+            "files": [
+              "Battleground3.png",
+              "fireflys.png",
+              "grass&road.png",
+              "grasses.png",
+              "jungle_bg.png",
+              "lianas.png",
+              "sky.png",
+              "tree_face.png",
+              "trees&bushes.png"
+            ],
+            "display_file": {
+              "name": "Battleground3.png",
+              "size": 208262
+            }
+          }
+        }
+      },
+      "Battleground4": {
+        "versions": {
+          "Bright": {
+            "files": [
+              "Battleground4.png",
+              "back_trees.png",
+              "bones.png",
+              "crypt.png",
+              "graves.png",
+              "ground.png",
+              "sky.png",
+              "tree.png",
+              "wall.png"
+            ],
+            "display_file": {
+              "name": "Battleground4.png",
+              "size": 140741
+            }
+          },
+          "Pale": {
+            "files": [
+              "Battleground4.png",
+              "back_trees.png",
+              "bones.png",
+              "crypt.png",
+              "graves.png",
+              "ground.png",
+              "sky.png",
+              "tree.png",
+              "wall.png"
+            ],
+            "display_file": {
+              "name": "graves.png",
+              "size": 143279
+            }
+          }
+        }
+      }
+    }
+  },
+  "castle_interior": {
+    "path": "/backgrounds/castle-interior/",
+    "description": "Interior castle environments with detailed architecture",
+    "variants": {
+      "background_1": {
+        "files": [
+          "Plan 1.png",
+          "Plan 2.png",
+          "Plan 3.png",
+          "Preview 1.png",
+          "background 1.png"
+        ],
+        "display_file": {
+          "name": "Preview 1.png",
+          "size": 146380
+        }
+      },
+      "background_2": {
+        "files": [
+          "Plan 1.png",
+          "Plan 2.png",
+          "Plan 3.png",
+          "Plan 4.png",
+          "Preview 2.png",
+          "background 2.png"
+        ],
+        "display_file": {
+          "name": "Preview 2.png",
+          "size": 123785
+        }
+      },
+      "background_3": {
+        "files": [
+          "Plan 1.png",
+          "Plan 2.png",
+          "Plan 3.png",
+          "Plan 4.png",
+          "Preview 3.png",
+          "background 3.png"
+        ],
+        "display_file": {
+          "name": "Preview 3.png",
+          "size": 171500
+        }
+      },
+      "background_4": {
+        "files": [
+          "Plan 1.png",
+          "Plan 2.png",
+          "Plan 3.png",
+          "Preview 4.png",
+          "background 4.png"
+        ],
+        "display_file": {
+          "name": "Preview 4.png",
+          "size": 141742
+        }
+      }
+    }
+  },
+  "mountains": {
+    "path": "/backgrounds/mountains/",
+    "description": "Majestic mountain landscapes with parallax scrolling",
+    "variants": {
+      "mountain1": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "PRE_ORIG_SIZE.png"
+        ],
+        "display_file": {
+          "name": "PRE_ORIG_SIZE.png",
+          "size": 21568
+        }
+      },
+      "mountain2": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "6.png",
+          "7.png",
+          "PRE_ORIG_SIZE.png"
+        ],
+        "display_file": {
+          "name": "PRE_ORIG_SIZE.png",
+          "size": 20077
+        }
+      },
+      "mountain3": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "PRE_ORIG_SIZE.png"
+        ],
+        "display_file": {
+          "name": "PRE_ORIG_SIZE.png",
+          "size": 41366
+        }
+      },
+      "mountain4": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "PRE_ORIG_SIZE.png",
+          "pre.png"
+        ],
+        "display_file": {
+          "name": "pre.png",
+          "size": 49210
+        }
+      },
+      "mountain5": {
+        "files": [
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "PRE_ORIG_SIZE.png",
+          "pre.png"
+        ],
+        "display_file": {
+          "name": "pre.png",
+          "size": 65310
+        }
+      },
+      "mountain6": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "PRE_ORIG_SIZE.png",
+          "pre.png"
+        ],
+        "display_file": {
+          "name": "pre.png",
+          "size": 55621
+        }
+      },
+      "mountain7": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3_3.png",
+          "BIGPRE_ORIG_SIZE.png",
+          "PRE_ORIG_SIZE.png"
+        ],
+        "display_file": {
+          "name": "BIGPRE_ORIG_SIZE.png",
+          "size": 48338
+        }
+      },
+      "mountain8": {
+        "files": [
+          "1_1.png",
+          "2.png",
+          "3.png",
+          "BIGPRE_ORIG_SIZE.png",
+          "PRE_ORIG_SIZE.png"
+        ],
+        "display_file": {
+          "name": "BIGPRE_ORIG_SIZE.png",
+          "size": 58741
+        }
+      }
+    }
+  },
+  "ocean": {
+    "path": "/backgrounds/ocean/",
+    "description": "Ocean landscapes with waves and parallax effects",
+    "variants": {
+      "Ocean_1": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png"
+        ],
+        "display_file": {
+          "name": "4.png",
+          "size": 47048
+        }
+      },
+      "Ocean_2": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png"
+        ],
+        "display_file": {
+          "name": "5.png",
+          "size": 54128
+        }
+      },
+      "Ocean_3": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png"
+        ],
+        "display_file": {
+          "name": "5.png",
+          "size": 37667
+        }
+      },
+      "Ocean_4": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png"
+        ],
+        "display_file": {
+          "name": "5.png",
+          "size": 50307
+        }
+      },
+      "Ocean_5": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png"
+        ],
+        "display_file": {
+          "name": "5.png",
+          "size": 43191
+        }
+      },
+      "Ocean_6": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png"
+        ],
+        "display_file": {
+          "name": "5.png",
+          "size": 49375
+        }
+      },
+      "Ocean_7": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "6.png"
+        ],
+        "display_file": {
+          "name": "6.png",
+          "size": 61839
+        }
+      },
+      "Ocean_8": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "6.png"
+        ],
+        "display_file": {
+          "name": "6.png",
+          "size": 58745
+        }
+      }
+    }
+  },
+  "winter": {
+    "path": "/backgrounds/winter/",
+    "description": "Snowy winter landscapes with HD versions",
+    "variants": {
+      "winter_1": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "6.png",
+          "7.png",
+          "hd.png"
+        ],
+        "display_file": {
+          "name": "hd.png",
+          "size": 90033
+        }
+      },
+      "winter_2": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "6.png",
+          "hd.png"
+        ],
+        "display_file": {
+          "name": "hd.png",
+          "size": 68163
+        }
+      },
+      "winter_3": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "hd.png"
+        ],
+        "display_file": {
+          "name": "hd.png",
+          "size": 33505
+        }
+      },
+      "winter_4": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "hd.png"
+        ],
+        "display_file": {
+          "name": "hd.png",
+          "size": 69881
+        }
+      },
+      "winter_5": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "6.png",
+          "7.png",
+          "8.png",
+          "9.png",
+          "10.png",
+          "11.png",
+          "hd.png"
+        ],
+        "display_file": {
+          "name": "hd.png",
+          "size": 91049
+        }
+      },
+      "winter_6": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "hd.png"
+        ],
+        "display_file": {
+          "name": "hd.png",
+          "size": 49744
+        }
+      },
+      "winter_7": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "hd.png"
+        ],
+        "display_file": {
+          "name": "hd.png",
+          "size": 47173
+        }
+      },
+      "winter_8": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "hd.png"
+        ],
+        "display_file": {
+          "name": "hd.png",
+          "size": 59060
+        }
+      }
+    }
+  },
+  "crystal_cave": {
+    "path": "/backgrounds/crystal-cave/",
+    "description": "Mystical crystal cave environments with detailed architecture",
+    "variants": {
+      "background_1": {
+        "files": [
+          "Plan 1.png",
+          "Plan 2.png",
+          "Plan 3.png",
+          "Plan 4.png",
+          "Plan 5.png",
+          "Preview 1.png",
+          "background 1.png"
+        ],
+        "display_file": {
+          "name": "Preview 1.png",
+          "size": 52753
+        }
+      },
+      "background_2": {
+        "files": [
+          "Plan 1.png",
+          "Plan 2.png",
+          "Plan 3.png",
+          "Plan 4.png",
+          "Preview 2.png",
+          "background 2.png"
+        ],
+        "display_file": {
+          "name": "Preview 2.png",
+          "size": 57326
+        }
+      },
+      "background_3": {
+        "files": [
+          "Plan 1.png",
+          "Plan 2.png",
+          "Plan 3.png",
+          "Plan 4.png",
+          "Preview 3.png",
+          "background 3.png"
+        ],
+        "display_file": {
+          "name": "Preview 3.png",
+          "size": 57315
+        }
+      },
+      "background_4": {
+        "files": [
+          "Plan 1.png",
+          "Plan 2.png",
+          "Plan 3.png",
+          "Plan 4.png",
+          "Plan 5.png",
+          "Preview 4.png",
+          "background 4.png"
+        ],
+        "display_file": {
+          "name": "Preview 4.png",
+          "size": 59870
+        }
+      }
+    }
+  },
+  "summer": {
+    "path": "/backgrounds/summer/",
+    "description": "Vibrant summer landscapes with layered parallax effects",
+    "variants": {
+      "summer_1": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "Summer1.png"
+        ],
+        "display_file": {
+          "name": "Summer1.png",
+          "size": 75354
+        }
+      },
+      "summer_2": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "Summer2.png"
+        ],
+        "display_file": {
+          "name": "Summer2.png",
+          "size": 36884
+        }
+      },
+      "summer_3": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "Summer3.png"
+        ],
+        "display_file": {
+          "name": "Summer3.png",
+          "size": 36626
+        }
+      },
+      "summer_4": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "Summer4.png"
+        ],
+        "display_file": {
+          "name": "Summer4.png",
+          "size": 42387
+        }
+      },
+      "summer_5": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "Summer5.png"
+        ],
+        "display_file": {
+          "name": "Summer5.png",
+          "size": 44054
+        }
+      },
+      "summer_6": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "5.png",
+          "Summer6.png"
+        ],
+        "display_file": {
+          "name": "Summer6.png",
+          "size": 58238
+        }
+      },
+      "summer_7": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "Summer7.png"
+        ],
+        "display_file": {
+          "name": "Summer7.png",
+          "size": 33211
+        }
+      },
+      "summer_8": {
+        "files": [
+          "1.png",
+          "2.png",
+          "3.png",
+          "4.png",
+          "Summer8.png"
+        ],
+        "display_file": {
+          "name": "Summer8.png",
+          "size": 38893
+        }
+      }
+    }
+  }
+}

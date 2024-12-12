@@ -1,0 +1,162 @@
+
+Fire Mage:
+
+Idle: 7 frames
+Walk: 6 frames
+Run: 8 frames
+Jump: 9 frames
+Attack_1: 4 frames
+Attack_2: 4 frames
+Fireball: 8 frames
+Flame_jet: 16 frames
+Hurt: 3 frames
+Dead: 6 frames
+
+
+Dark Mage:
+
+Idle: 8 frames
+Walk: 7 frames
+Run: 8 frames
+Jump: 8 frames
+Attack_1: 7 frames
+Attack_2: 9 frames
+Magic_sphere: 16 frames
+Magic_arrow: 6 frames
+Hurt: 4 frames
+Dead: 4 frames
+
+
+Light Mage:
+Idle: 7 frames
+Walk: 7 frames
+Run: 8 frames
+Jump: 8 frames
+Attack_1: 10 frames
+Attack_2: 4 frames
+Light_ball: 7 frames
+Light_charge: 12 frames
+Hurt: 3 frames
+Dead: 5 frames
+
+Wizard:
+Idle: 6 frames
+Walk: 7 frames
+Run: 8 frames
+Jump: 11 frames
+Attack_1: 10 frames
+Attack_2: 4 frames
+Attack_3: 7 frames
+Hurt: 4 frames
+Dead: 4 frames
+
+Enchantress:
+Idle: 5 frames
+Walk: 8 frames
+Run: 8 frames
+Jump: 8 frames
+Attack_1: 6 frames
+Attack_2: 3 frames
+Attack_3: 3 frames
+Attack_4: 10 frames
+Hurt: 2 frames
+Dead: 5 frames
+
+
+
+Archer:
+Idle: 6 frames
+Idle_2: 4 frames
+Walk: 8 frames
+Run: 8 frames
+Jump: 9 frames
+Attack_1: 4 frames
+Shot_1: 14 frames
+Shot_2: 13 frames
+Hurt: 3 frames
+Dead: 3 frames
+
+Crimson:
+Idle: 6 frames
+Walk: 8 frames
+Run: 7 frames
+Jump: 6 frames
+Attack_1: 5 frames
+Attack_2: 2 frames
+Attack_3: 5 frames
+Attack_4: 5 frames
+Hurt: 3 frames
+Dead: 4 frames
+
+Rapier:
+Idle: 5 frames
+Walk: 8 frames
+Run: 8 frames
+Jump: 7 frames
+Attack_1: 5 frames
+Attack_2: 4 frames
+Attack_3: 6 frames
+Attack_4: 5 frames
+Hurt: 2 frames
+Dead: 4 frames
+
+Swordsmen:
+Idle: 8 frames
+Idle_2: 3 frames
+Walk: 8 frames
+Run: 8 frames
+Jump: 8 frames
+Attack_1: 6 frames
+Attack_2: 3 frames
+Attack_3: 4 frames
+Hurt: 3 frames
+Dead: 3 frames
+
+Barbarian:
+Idle: 6 frames
+Walk: 8 frames
+Run: 6 frames
+Run+Attack: 4 frames
+Jump: 5 frames
+Attack_1: 4 frames
+Attack_2: 4 frames
+Attack_3: 4 frames
+Hurt: 2 frames
+Dead: 4 frames
+
+Battlemaster:
+Idle: 5 frames
+Walk: 8 frames
+Run: 6 frames
+Run+Attack: 4 frames
+Jump: 7 frames
+Attack_1: 4 frames
+Attack_2: 4 frames
+Protect: 2 frames
+Hurt: 3 frames
+Dead: 4 frames
+
+Vanguard:
+Idle: 5 frames
+Walk: 8 frames
+Run: 6 frames
+Run+Attack: 4 frames
+Jump: 8 frames
+Attack_1: 4 frames
+Attack_2: 3 frames
+Protect: 3 frames
+Hurt: 2 frames
+Dead: 4 frames
+
+
+knight:
+Idle: 4 frames
+Walk: 8 frames
+Run: 7 frames
+Run+Attack: 6 frames
+Jump: 6 frames
+Defend: 5 frames
+Attack_1: 5 frames
+Attack_2: 4 frames
+Attack_3: 4 frames
+Dead: 6 frames

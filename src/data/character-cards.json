@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Archer",
+    "strength": 6,
+    "intelligence": 7,
+    "healthPoints": 5,
+    "agility": 9,
+    "magicPoints": 4,
+    "specialAttacks": ["Precision Shot", "Rain of Arrows", "Eagle Eye"]
+  },
+  {
+    "name": "Crimson Knight",
+    "strength": 9,
+    "intelligence": 6,
+    "healthPoints": 8,
+    "agility": 7,
+    "magicPoints": 5,
+    "specialAttacks": ["Blood Oath", "Dragon's Fury", "Crimson Shield"]
+  },
+  {
+    "name": "Dark Mage",
+    "strength": 4,
+    "intelligence": 9,
+    "healthPoints": 5,
+    "agility": 6,
+    "magicPoints": 10,
+    "specialAttacks": ["Shadow Strike", "Magic Sphere", "Magic Arrow"]
+  },
+  {
+    "name": "Fire Mage",
+    "strength": 5,
+    "intelligence": 8,
+    "healthPoints": 6,
+    "agility": 4,
+    "magicPoints": 9,
+    "specialAttacks": ["Fireball Strike", "Phoenix Rising", "Inferno Wave"]
+  },
+  {
+    "name": "Light Mage",
+    "strength": 4,
+    "intelligence": 8,
+    "healthPoints": 7,
+    "agility": 5,
+    "magicPoints": 9,
+    "specialAttacks": ["Divine Radiance", "Light Charge", "Light Sword"]
+  },
+  {
+    "name": "Rapier",
+    "strength": 6,
+    "intelligence": 7,
+    "healthPoints": 6,
+    "agility": 9,
+    "magicPoints": 3,
+    "specialAttacks": ["Swift Strike", "Riposte", "Blade Dance"]
+  },
+  {
+    "name": "Swordsmen",
+    "strength": 8,
+    "intelligence": 6,
+    "healthPoints": 7,
+    "agility": 8,
+    "magicPoints": 2,
+    "specialAttacks": ["Power Slash", "Whirlwind Strike", "Blade Mastery"]
+  },
+  {
+    "name": "Wizard",
+    "strength": 3,
+    "intelligence": 10,
+    "healthPoints": 5,
+    "agility": 4,
+    "magicPoints": 10,
+    "specialAttacks": ["Arcane Blast", "Time Warp", "Mystic Shield"]
+  }
+]

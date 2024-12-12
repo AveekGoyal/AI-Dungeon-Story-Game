@@ -1,0 +1,121 @@
+Plent:
+Idle: 5 frames
+Walk: 9 frames
+Attack_1: 6 frames
+Attack_2: 5 frames
+Attack_3: 8 frames
+Attack_Disquise: 7 frames
+Disguise: 11 frames
+Poison: 7 frames
+Hurt: 3 frames
+Dead: 2 frames
+
+Fire Spirit:
+Idle: 6 frames
+Idle_2: 6 frames
+Walk: 7 frames
+Run: 7 frames
+Attack: 14 frames
+Shot: 8 frames
+Charge: 8 frames
+Explosion: 11 frames
+Flame: 13 frames
+Hurt: 3 frames
+Dead: 5 frames
+
+Skeleton:
+Idle: 7 frames
+Walk: 8 frames
+Run: 7 frames
+Jump: 10 frames
+Attack_1: 7 frames
+Attack_2: 4 frames
+Attack_3: 7 frames
+Special_attack: 5 frames
+Hurt: 3 frames
+Dead: 3 frames
+
+Skeleton Archer:
+Idle: 7 frames
+Walk: 8 frames
+Attack_1: 5 frames
+Attack_2: 4 frames
+Attack_3: 3 frames
+Shot_1: 15 frames
+Shot_2: 15 frames
+Evasion: 6 frames
+Hurt: 2 frames
+Dead: 5 frames
+
+Skeleton Spearman:
+Idle: 6 frames
+Walk: 7 frames
+Run: 6 frames
+Attack_1: 4 frames
+Attack_2: 4 frames
+Run+attack: 5 frames
+Protect: 2 frames
+Fall: 6 frames
+Hurt: 3 frames
+Dead: 5 frames
+
+Skeleton Warrior:
+Idle: 7 frames
+Walk: 7 frames
+Run: 8 frames
+Attack_1: 5 frames
+Attack_2: 6 frames
+Attack_3: 4 frames
+Run+attack: 7 frames
+Protect: 1 frames
+Hurt: 2 frames
+Dead: 4 frames
+
+Troll:
+Idle: 10 frames (Idle_000.png to Idle_009.png)
+Walk: 10 frames (Walk_000.png to Walk_009.png)
+Run: 10 frames (Run_000.png to Run_009.png)
+Jump: 10 frames (Jump_000.png to Jump_009.png)
+Attack: 10 frames (Attack_000.png to Attack_009.png)
+Taunt: 10 frames (Taunt_000.png to Taunt_009.png)
+Hurt: 10 frames (Hurt_000.png to Hurt_009.png)
+Dead: 10 frames (Dead_000.png to Dead_009.png)
+
+Werewolf:
+
+black_warewolfs:
+Attack_1: 6 frames
+Attack_2: 4 frames
+Attack_3: 5 frames
+Dead: 2 frames
+Hurt: 2 frames
+Idle: 8 frames
+Walk: 11 frames
+Run: 9 frames
+Jump: 7 frames
+Run_Attack: 7 frames
+
+
+red_warewolfs:
+Attack_1: 6 frames
+Attack_2: 4 frames
+Attack_3: 5 frames
+Dead: 2 frames
+Hurt: 2 frames
+Idle: 8 frames
+Walk: 11 frames
+Run: 9 frames
+Jump: 7 frames
+Run_Attack: 7 frames
+
+white_warewolfs:
+Attack_1: 6 frames
+Attack_2: 4 frames
+Attack_3: 5 frames
+Dead: 2 frames
+Hurt: 2 frames
+Idle: 8 frames
+Walk: 11 frames
+Run: 9 frames
+Jump: 7 frames
+Run_Attack: 7 frames

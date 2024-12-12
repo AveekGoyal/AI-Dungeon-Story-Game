@@ -1,0 +1,126 @@
+{
+  "alchemical-ingredients": {
+    "description": "Various alchemical ingredients and potions",
+    "type": "high-quality",
+    "path": "/assets/alchemical-ingredients",
+    "file_count": 50,
+    "average_size_kb": 320,
+    "size_range": {
+      "min_kb": 227,
+      "max_kb": 420
+    },
+    "naming_pattern": "{1-50}.png"
+  },
+  "belts": {
+    "description": "Collection of belt icons",
+    "type": "preview",
+    "path": "/assets/belts",
+    "file_count": 48,
+    "average_size_kb": 1.7,
+    "size_range": {
+      "min_kb": 1.4,
+      "max_kb": 2
+    },
+    "naming_pattern": "Icon{1-48}.png"
+  },
+  "books": {
+    "description": "Collection of magical books and tomes",
+    "type": "high-quality",
+    "path": "/assets/books",
+    "file_count": 50,
+    "average_size_kb": 380,
+    "size_range": {
+      "min_kb": 305,
+      "max_kb": 494
+    },
+    "naming_pattern": "{1-50}.png"
+  },
+  "boots": {
+    "description": "Collection of magical and combat boots",
+    "type": "high-quality",
+    "path": "/assets/boots",
+    "file_count": 50,
+    "average_size_kb": 330,
+    "size_range": {
+      "min_kb": 230,
+      "max_kb": 431
+    },
+    "naming_pattern": "{1-50}.png"
+  },
+  "bow-and-crossbow": {
+    "description": "Collection of bows and crossbows with effect variations",
+    "type": "preview",
+    "path": "/assets/bow-and-crossbow",
+    "file_count": 48,
+    "average_size_kb": 1.9,
+    "size_range": {
+      "min_kb": 1.4,
+      "max_kb": 2.9
+    },
+    "variants": {
+      "with_effects": "Icon{1-48}.png",
+      "no_effects": "Icon{1-48}_no_effect.png"
+    },
+    "naming_pattern": "{1-48}.png"
+  },
+  "coins": {
+    "description": "Collection of currency coins",
+    "type": "high-quality",
+    "path": "/assets/coins",
+    "file_count": 3,
+    "average_size_kb": 308,
+    "size_range": {
+      "min_kb": 288,
+      "max_kb": 325
+    },
+    "naming_pattern": "{1-3}.png"
+  },
+  "daggers": {
+    "description": "Collection of combat daggers",
+    "type": "medium-quality",
+    "path": "/assets/daggers",
+    "file_count": 10,
+    "average_size_kb": 94,
+    "size_range": {
+      "min_kb": 54,
+      "max_kb": 161
+    },
+    "naming_pattern": "daggers ({1-10}).png"
+  },
+  "dragon-loot": {
+    "description": "Collection of dragon treasures and artifacts",
+    "type": "high-quality",
+    "path": "/assets/dragon-loot",
+    "file_count": 50,
+    "average_size_kb": 312,
+    "size_range": {
+      "min_kb": 219,
+      "max_kb": 395
+    },
+    "naming_pattern": "{1-50}.png"
+  },
+  "minerals": {
+    "description": "Collection of precious minerals and gems",
+    "type": "preview",
+    "path": "/assets/minerals",
+    "file_count": 48,
+    "average_size_kb": 2,
+    "size_range": {
+      "min_kb": 1.4,
+      "max_kb": 2.3
+    },
+    "naming_pattern": "Icon{1-48}.png"
+  },
+  "shield-and-amulet": {
+    "description": "Collection of defensive equipment and magical amulets",
+    "type": "preview",
+    "path": "/assets/shield-and-amulet",
+    "file_count": 48,
+    "average_size_kb": 2.1,
+    "size_range": {
+      "min_kb": 1.6,
+      "max_kb": 2.8
+    },
+    "naming_pattern": "Icon{1-48}.png"
+  }
+}
