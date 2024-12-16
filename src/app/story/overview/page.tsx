@@ -19,15 +19,17 @@ import { OverviewCard as SwordsmenOverview } from "@/components/characters/sword
 import { OverviewCard as WizardOverview } from "@/components/characters/wizard-card"
 import { useSession } from "next-auth/react"
 import { useToast } from "@/components/ui/use-toast"
+import { useStoryStore } from "@/store/story"
 
 interface CharacterStats {
-  name: string
-  strength: number
-  intelligence: number
-  healthPoints: number
-  agility: number
-  magicPoints: number
-  specialAttacks: string[]
+  name: string;
+  class: string;
+  strength: number;
+  intelligence: number;
+  healthPoints: number;
+  agility: number;
+  magicPoints: number;
+  specialAttacks: string[];
 }
 
 // Story Overview Component
@@ -36,6 +38,8 @@ function StoryOverview({ genre, character }: { genre: any; character: CharacterS
   const { toast } = useToast()
   const { data: session, status: sessionStatus } = useSession()
   const hasGeneratedRef = useRef(false)
+  const setMetadata = useStoryStore(state => state.setMetadata)
+  const setStoryId = useStoryStore(state => state.setStoryId)
   const [state, setState] = useState({
     isCreating: false,
     storyTitle: "",
@@ -45,6 +49,109 @@ function StoryOverview({ genre, character }: { genre: any; character: CharacterS
     error: null as string | null
   })
   const selectedCharacter = character.name.toLowerCase().replace(/\s+/g, '-')
+
+  const createStory = async () => {
+    try {
+      setState(prev => ({ ...prev, isCreating: true }))
+      
+      const response = await fetch('/api/stories', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          title: state.storyTitle,
+          description: state.storyDescription,
+          genre: {
+            name: genre.name,
+            description: genre.description
+          },
+          character: {
+            name: character.name,
+            class: character.class,
+            stats: {
+              strength: character.strength,
+              intelligence: character.intelligence,
+              healthPoints: character.healthPoints,
+              agility: character.agility,
+              magicPoints: character.magicPoints,
+              specialAttacks: character.specialAttacks
+            }
+          }
+        })
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to create story')
+      }
+
+      const data = await response.json()
+      
+      console.log('[Zustand] Setting story data:', data);
+      
+      // Update Zustand store with story metadata and ID
+      setStoryId(data.id);
+      setMetadata({
+        title: state.storyTitle,
+        description: state.storyDescription,
+        genre: {
+          name: genre.name,
+          description: genre.description
+        },
+        character: {
+          name: character.name,
+          class: character.class,
+          stats: {
+            strength: character.strength,
+            intelligence: character.intelligence,
+            healthPoints: character.healthPoints,
+            agility: character.agility,
+            magicPoints: character.magicPoints,
+            specialAttacks: character.specialAttacks
+          }
+        }
+      });
+
+      console.log('[Zustand] Store updated with story:', {
+        id: data.id,
+        metadata: {
+          title: state.storyTitle,
+          description: state.storyDescription,
+          genre: {
+            name: genre.name,
+            description: genre.description
+          },
+          character: {
+            name: character.name,
+            class: character.class,
+            stats: {
+              strength: character.strength,
+              intelligence: character.intelligence,
+              healthPoints: character.healthPoints,
+              agility: character.agility,
+              magicPoints: character.magicPoints,
+              specialAttacks: character.specialAttacks
+            }
+          }
+        }
+      });
+
+      // Navigate to the first chapter/page
+      router.push(`/story/${data.id}/chapter/1/page/1`);
+    } catch (error) {
+      console.error('[Zustand] Error creating story:', error)
+      setState(prev => ({
+        ...prev,
+        isCreating: false,
+        error: 'Failed to create story. Please try again.'
+      }))
+      toast({
+        title: "Error",
+        description: "Failed to create story. Please try again.",
+        variant: "destructive"
+      })
+    }
+  }
 
   // Memoize the story generation function
   const generateStoryInfo = useCallback(async () => {
@@ -62,12 +169,11 @@ function StoryOverview({ genre, character }: { genre: any; character: CharacterS
       character: character.name
     })
     
-    hasGeneratedRef.current = true
-    setState(prev => ({ ...prev, isGenerating: true }))
+    setState(prev => ({ ...prev, isGenerating: true, error: null }))
 
     try {
-      console.log('[StoryOverview] Making API request to story-generator')
-      const response = await fetch('/api/story-generator', {
+      console.log('[StoryOverview] Making API request to story-initializer')
+      const response = await fetch('/api/story-initializer', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -98,9 +204,30 @@ function StoryOverview({ genre, character }: { genre: any; character: CharacterS
         ...prev,
         storyTitle: data.title,
         storyDescription: data.description,
-        isGenerating: false,
-        hasGenerated: true
-      }))
+        hasGenerated: true,
+        isGenerating: false
+      }));
+
+      // Store metadata in Zustand
+      setMetadata({
+        title: data.title,
+        description: data.description,
+        genre,
+        character: {
+          name: character.name,
+          class: character.class,
+          stats: {
+            strength: character.strength,
+            intelligence: character.intelligence,
+            healthPoints: character.healthPoints,
+            agility: character.agility,
+            magicPoints: character.magicPoints,
+            specialAttacks: character.specialAttacks
+          }
+        }
+      });
+
+      hasGeneratedRef.current = true
     } catch (error) {
       console.error('[StoryOverview] Error in story generation:', error)
       const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred'
@@ -116,11 +243,11 @@ function StoryOverview({ genre, character }: { genre: any; character: CharacterS
       
       setState(prev => ({ 
         ...prev, 
-        isGenerating: false,
-        error: errorMessage
+        error: errorMessage,
+        isGenerating: false
       }))
     }
-  }, [session, genre, character, toast])
+  }, [session, genre, character, setMetadata])
 
   useEffect(() => {
     if (session?.user) {
@@ -176,8 +303,58 @@ function StoryOverview({ genre, character }: { genre: any; character: CharacterS
         throw new Error('No story ID in response')
       }
 
-      console.log('Redirecting to story page:', `/story/${data.id}`)
-      router.push(`/story/${data.id}`)
+      console.log('[Zustand] Setting story data:', data);
+      
+      // Update Zustand store with story metadata and ID
+      setStoryId(data.id);
+      setMetadata({
+        title: state.storyTitle,
+        description: state.storyDescription,
+        genre: {
+          name: genre.name,
+          description: genre.description
+        },
+        character: {
+          name: character.name,
+          class: character.class,
+          stats: {
+            strength: character.strength,
+            intelligence: character.intelligence,
+            healthPoints: character.healthPoints,
+            agility: character.agility,
+            magicPoints: character.magicPoints,
+            specialAttacks: character.specialAttacks
+          }
+        }
+      });
+
+      console.log('[Zustand] Store updated with story:', {
+        id: data.id,
+        metadata: {
+          title: state.storyTitle,
+          description: state.storyDescription,
+          genre: {
+            name: genre.name,
+            description: genre.description
+          },
+          character: {
+            name: character.name,
+            class: character.class,
+            stats: {
+              strength: character.strength,
+              intelligence: character.intelligence,
+              healthPoints: character.healthPoints,
+              agility: character.agility,
+              magicPoints: character.magicPoints,
+              specialAttacks: character.specialAttacks
+            }
+          }
+        }
+      });
+
+      // Navigate to the first chapter/page
+      console.log('Redirecting to story page:', `/story/${data.id}/chapter/1/page/1`)
+      router.push(`/story/${data.id}/chapter/1/page/1`)
     } catch (error) {
       console.error('Error creating story:', error)
       const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred'

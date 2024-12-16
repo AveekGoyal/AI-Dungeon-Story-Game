@@ -3,12 +3,19 @@ import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../auth/[...nextauth]/route';
 import OpenAI from 'openai';
 import { StoryResponse } from '@/types/story';
+import { StoryContext } from '@/types/story-context';
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const STORY_PROMPT = `You are a fantasy story generator. Generate the story content following these exact formatting rules:
+const generateStoryPrompt = (
+  currentChapter: number,
+  currentPage: number,
+  context: StoryContext | null,
+  previousChoice: string | null
+) => {
+  let prompt = `You are a fantasy story generator. Generate the story content following these exact formatting rules:
 
 1. Required Section Markers (use in exact order):
    ###TITLE### (Story title, only for Chapter 1, Page 1)
@@ -23,8 +30,12 @@ const STORY_PROMPT = `You are a fantasy story generator. Generate the story cont
    - No quotes or special characters
 
    CHAPTER:
-   - Single line containing chapter number (1-5) and name
-   - Format: "Chapter X: [Chapter Name]"
+   - Format: "Chapter [Number]: [Epic Chapter Name]."
+   - Example: "Chapter 1: The Dark Forest Awakens."
+   - IMPORTANT: Always end chapter title with a period
+   - Make chapter names epic and memorable (at least 3-4 words)
+   - Must include both number and descriptive name
+   - Keep chapter name consistent within same chapter
 
    NARRATIVE:
    - Exactly 5 paragraphs
@@ -32,93 +43,85 @@ const STORY_PROMPT = `You are a fantasy story generator. Generate the story cont
    - Rich descriptive fantasy content
    - Maintain consistent narrative voice
    - Include character dialogue within paragraphs
-   - Format: Clear paragraph breaks with \n\n between paragraphs
+   - Format: Clear paragraph breaks with \\n\\n between paragraphs
 
    CHOICES:
    - Exactly 4 choices in JSON array format
    - Each choice should be meaningful and affect the story
-   - No game mechanics (HP/MP)
-   - Format: ["choice1", "choice2", "choice3", "choice4"]
+   - Format: ["choice1", "choice2", "choice3", "choice4"]`;
 
-3. Story Context Requirements:
-   - Total 5 chapters
-   - 5 pages per chapter
-   - Maintain story continuity
-   - Adapt to previous choices
-   - Build coherent narrative arcs`;
+  // Add story context if available
+  if (context) {
+    prompt += `\n\n3. Story Context:
+   CHAPTER CONTEXT:
+   - Current Chapter: ${context.currentChapterContext.chapterNumber}
+   - Chapter Theme: ${context.currentChapterContext.theme}
+   - Key Events: ${context.currentChapterContext.keyEvents.join(', ')}
+   - Chapter Summary: ${context.currentChapterContext.summary}
+
+   NARRATIVE CONTEXT:
+   - Main Plot Points: ${context.narrativeContext.mainPlotPoints.join(', ')}
+   - Character Development: ${context.narrativeContext.characterDevelopment.join(', ')}
+   - Current Theme: ${context.narrativeContext.currentTheme}
+
+   PREVIOUS CHOICES:
+   ${context.previousChoices
+     .slice(-3) // Only use last 3 choices for context
+     .map(choice => `- Chapter ${choice.chapterNumber}, Page ${choice.pageNumber}: ${choice.choiceText}`)
+     .join('\n   ')}`;
+  }
+
+  // Add previous choice if available
+  if (previousChoice) {
+    prompt += `\n\nPrevious Choice: "${previousChoice}"
+   IMPORTANT: Continue the story based on this choice.`;
+  }
+
+  return prompt;
+};
 
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session?.user) {
+    if (!session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { chapterNumber, pageNumber, previousChoice } = await req.json();
+    const { currentChapter, currentPage, context, previousChoice } = await req.json();
 
-    const response = await openai.chat.completions.create({
-      model: "gpt-4",
+    const prompt = generateStoryPrompt(currentChapter, currentPage, context, previousChoice);
+
+    const stream = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
       messages: [
-        {
-          role: "system",
-          content: STORY_PROMPT
-        },
-        {
-          role: "user",
-          content: `Generate a story page with:
-          Chapter: ${chapterNumber || 1}
-          Page: ${pageNumber || 1}
-          ${previousChoice ? `Previous Choice: ${previousChoice}` : 'Start a new story'}`
-        }
+        { role: 'system', content: 'You are a creative story writer.' },
+        { role: 'user', content: prompt }
       ],
-      stream: true,
-      temperature: 0.8,
+      temperature: 0.7,
       max_tokens: 1000,
+      stream: true
     });
 
-    // Create a stream with controlled chunk sizes and delays
-    const stream = new ReadableStream({
+    const encoder = new TextEncoder();
+    const customStream = new ReadableStream({
       async start(controller) {
-        const encoder = new TextEncoder();
-        let buffer = '';
-        const CHUNK_SIZE = 3; // Send 3 characters at a time
-        const DELAY_MS = 30; // 30ms delay between chunks
-
-        try {
-          for await (const chunk of response) {
-            if (chunk.choices[0]?.delta?.content) {
-              const text = chunk.choices[0].delta.content;
-              buffer += text;
-              
-              // Process buffer in chunks
-              while (buffer.length >= CHUNK_SIZE) {
-                const chunk = buffer.slice(0, CHUNK_SIZE);
-                buffer = buffer.slice(CHUNK_SIZE);
-                controller.enqueue(encoder.encode(chunk));
-                // Add delay after section markers for dramatic effect
-                if (chunk.includes('###')) {
-                  await new Promise(resolve => setTimeout(resolve, 200));
-                } else {
-                  await new Promise(resolve => setTimeout(resolve, DELAY_MS));
-                }
-              }
-            }
-          }
-          
-          // Send any remaining buffer content
-          if (buffer.length > 0) {
-            controller.enqueue(encoder.encode(buffer));
-          }
-          
-          controller.close();
-        } catch (error) {
-          controller.error(error);
+        for await (const chunk of stream) {
+          const content = chunk.choices[0]?.delta?.content || '';
+          controller.enqueue(encoder.encode(content));
         }
+        controller.close();
       }
     });
 
-    return new Response(stream);
-  } catch (error: any) {
+    return new Response(customStream, {
+      headers: {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+      },
+    });
+  } catch (error) {
+    console.error('Story generation error:', error);
     return NextResponse.json(
       { error: 'Failed to generate story' },
       { status: 500 }

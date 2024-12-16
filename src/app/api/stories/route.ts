@@ -21,7 +21,7 @@ export async function GET() {
 
     const stories = await db.collection('stories')
       .find({ userId: new ObjectId(session.user.id) })
-      .sort({ lastPlayedAt: -1 })
+      .sort({ updatedAt: -1 })
       .toArray();
 
     const formattedStories = stories.map(story => ({
@@ -29,41 +29,14 @@ export async function GET() {
       title: story.title,
       description: story.description,
       genre: story.genre,
-      character: {
-        name: story.character?.name,
-        class: story.character?.class,
-        stats: story.character?.stats,
-        inventory: story.character?.inventory,
-        status: story.character?.status
-      },
-      progress: {
-        currentChapter: story.currentChapter || 1,
-        totalChapters: story.totalChapters || 1,
-        percentage: Math.round(((story.currentChapter || 1) / (story.totalChapters || 1)) * 100)
-      },
-      gameState: {
-        currentLocation: story.gameState?.currentLocation,
-        availableChoices: story.gameState?.availableChoices,
-        lastChoice: story.gameState?.lastChoice,
-        questStatus: story.gameState?.questStatus
-      },
-      navigationHistory: story.navigationHistory || [],
-      choiceHistory: story.choiceHistory || [],
-      status: story.status || 'in_progress',
-      lastPlayedAt: story.lastPlayedAt || story.updatedAt,
-      createdAt: story.createdAt,
-      updatedAt: story.updatedAt
+      character: story.character
     }));
 
-    return NextResponse.json({ 
-      stories: formattedStories,
-      totalStories: formattedStories.length,
-      activeStories: formattedStories.filter(s => s.status === 'in_progress').length
-    });
+    return NextResponse.json({ stories: formattedStories });
   } catch (error) {
     console.error('Error fetching stories:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Failed to fetch stories' },
       { status: 500 }
     );
   }
@@ -139,7 +112,11 @@ export async function POST(req: Request) {
     };
 
     console.log('Inserting story document...')
-    const result = await db.collection('stories').insertOne(storyDoc);
+    const result = await db.collection('stories').insertOne({
+      ...storyDoc,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    });
     
     if (!result.insertedId) {
       console.error('Failed to insert story - no insertedId returned')
@@ -153,7 +130,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       id: result.insertedId.toString(),
-      message: 'Story created successfully'
+      title: storyDoc.title,
+      description: storyDoc.description,
+      genre: storyDoc.genre,
+      character: storyDoc.character
     });
   } catch (error) {
     console.error('Error in POST /api/stories:', error);

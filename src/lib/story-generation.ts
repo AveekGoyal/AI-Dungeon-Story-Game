@@ -26,6 +26,7 @@ export interface StoryGenerationRequest {
     magicPoints: number
     specialAttacks: string[]
   }
+  storyId: string
   chapter: number
   page: number
   previousChoices: {
@@ -37,7 +38,7 @@ export interface StoryGenerationRequest {
 }
 
 export async function generateStory(params: StoryGenerationRequest): Promise<ReadableStream<Uint8Array>> {
-  const response = await fetch(`/api/stories/${params.chapter}`, {
+  const response = await fetch(`/api/stories/${params.storyId}/chapter/${params.chapter}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'

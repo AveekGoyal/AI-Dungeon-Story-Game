@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { StreamingState, StoryResponse, ProcessedContent } from '@/types/story';
+import { useStoryStore } from '@/store/story';
 
 interface UseStoryStreamProps {
+  storyId?: string;
   chapterNumber?: number;
   pageNumber?: number;
   previousChoice?: string;
@@ -16,10 +18,25 @@ interface UseStoryStreamReturn {
 }
 
 export function useStoryStream({ 
+  storyId,
   chapterNumber = 1, 
   pageNumber = 1, 
   previousChoice 
 }: UseStoryStreamProps): UseStoryStreamReturn {
+  // Get store actions
+  const {
+    setStoryId,
+    setCurrentChapter,
+    setCurrentPage,
+    setPreviousChoice,
+    setContent,
+    setStreamingContent: setStoreStreamingContent,
+    setLoading,
+    setError: setStoreError,
+    setActiveStream
+  } = useStoryStore();
+
+  // Local state for performance
   const [state, setState] = useState<{
     content: Partial<StoryResponse>;
     streamingContent: ProcessedContent;
@@ -38,6 +55,14 @@ export function useStoryStream({
   const abortControllerRef = useRef<AbortController | null>(null);
   const activeStreamRef = useRef<boolean>(false);
 
+  // Sync with store when props change
+  useEffect(() => {
+    if (storyId) setStoryId(storyId);
+    setCurrentChapter(chapterNumber);
+    setCurrentPage(pageNumber);
+    if (previousChoice !== undefined) setPreviousChoice(previousChoice);
+  }, [storyId, chapterNumber, pageNumber, previousChoice, setStoryId, setCurrentChapter, setCurrentPage, setPreviousChoice]);
+
   // Process streaming content into sections
   const processContent = useCallback((text: string, currentChapter: number) => {
     const sections: ProcessedContent['sections'] = {};
@@ -45,26 +70,32 @@ export function useStoryStream({
     
     // Process chapter
     if (text.includes('###CHAPTER###')) {
-      const chapterMatch = text.match(/###CHAPTER###\s*(.*?)(?=###|$)/);
+      const chapterMatch = text.match(/###CHAPTER###\s*([\s\S]*?)(?=###|$)/);
       if (chapterMatch) {
         const chapterText = chapterMatch[1].trim();
-        // Only consider chapter complete if it has both number and name with proper format
-        const isComplete = Boolean(
-          chapterText.includes(':') && 
-          chapterText.match(/^Chapter \d+:/i) && 
-          chapterText.split(':')[1].trim().length > 0
-        );
         
-        sections.chapter = {
-          text: isComplete ? chapterText : `Chapter ${currentChapter}`,
-          isComplete
-        };
-
+        // Check if the chapter title is complete - must end with a period or newline
+        // and be at least 20 characters long (e.g., "Chapter 1: The Begin" is 20 chars)
+        const isComplete = (chapterText.endsWith('.') || chapterText.includes('\n')) && 
+                         chapterText.length >= 20;
+        
         if (isComplete) {
-          const [number, ...nameParts] = chapterText.split(':');
+          // Clean up the chapter text - remove period and get the actual title
+          const cleanTitle = chapterText.replace(/\.$/, '').trim();
+          sections.chapter = {
+            text: cleanTitle,
+            isComplete: true
+          };
+          
           updatedContent.chapter = {
-            number: parseInt(number.replace('Chapter', '').trim()),
-            name: nameParts.join(':').trim()
+            number: currentChapter,
+            name: cleanTitle
+          };
+        } else {
+          // If not complete, don't show partial title
+          sections.chapter = {
+            text: `Chapter ${currentChapter}`,
+            isComplete: false
           };
         }
       }
@@ -141,6 +172,20 @@ export function useStoryStream({
       }
     }
 
+    // Sync complete content with store
+    if (Object.keys(updatedContent).length > 0) {
+      setContent(updatedContent);
+    }
+
+    // Only sync streaming content with store when sections are complete
+    const hasCompleteSection = Object.values(sections).some(section => section?.isComplete);
+    if (hasCompleteSection) {
+      setStoreStreamingContent({
+        raw: text,
+        sections
+      });
+    }
+
     return { sections, updatedContent };
   }, []);
 
@@ -201,11 +246,15 @@ export function useStoryStream({
       if (error.name === 'AbortError') {
         console.log('Stream aborted');
       } else {
-        setState(prev => ({
-          ...prev,
-          error: error.message || 'Failed to stream story',
-          isLoading: false
-        }));
+        // Sync error state with store
+        if (error instanceof Error) {
+          const errorMessage = error.message;
+          setStoreError(errorMessage);
+        } else {
+          setStoreError('An error occurred');
+        }
+        setLoading(false);
+        setActiveStream(false);
       }
     }
   }, [chapterNumber, pageNumber, previousChoice, processContent]);
